@@ -1,0 +1,265 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  color: #000;
+  overflow: hidden; 
+}
+
+/* Overall App Styles */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.app.dark {
+  background-color: #17212b;
+  color: #fff;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.hamburger {
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Chat List Styles */
+.chat-list {
+  width: 100%;
+  border-right: 1px solid #ccc;
+  overflow-y: auto;
+  background-color: #fff;
+  flex: 1;
+}
+
+.chat-list.dark {
+  background-color: #17212b;
+}
+
+.chat-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-bottom: 1px solid #eee;
+}
+
+.chat-item:hover {
+  background-color: #f0f0f0;
+}
+
+.chat-item.selected {
+  background-color: #d8eafd;
+}
+
+.chat-item.dark {
+  background-color: #17212b;
+  color: #fff;
+}
+
+.profile-initials,
+.message-initials {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+  background-color: #007bff; 
+  color: #fff; 
+}
+
+.profile-initials.dark,
+.message-initials.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+.chat-item-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-creator {
+  font-weight: bold;
+  color: #333;
+}
+
+.chat-message,
+.message-text {
+  color: #999;
+  word-wrap: break-word; 
+}
+
+.chat-message.dark,
+.message-item.dark {
+  color: #bbb;
+}
+
+.chat-date {
+  font-size: 12px;
+  color: #999;
+}
+
+.chat-date.dark {
+  color: #bbb;
+}
+
+/* Chat Window Styles */
+.chat-window {
+  width: 100%;
+  height: 100vh; /* Make chat window full screen on mobile */
+  padding: 15px;
+  overflow-y: auto;
+  background-color: #f1f5f8;
+  flex: 1;
+  display: none; /* Initially hide chat window */
+  flex-direction: column;
+}
+
+.chat-window.active {
+  display: flex; /* Display chat window when chat is selected */
+}
+
+.chat-window.dark {
+  background-color: #0e1621;
+}
+
+/* Message Styles */
+.message-item {
+  margin-bottom: 10px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+.message-item.dark {
+  background-color: #2b5278;
+  color: #fff;
+}
+
+.message-text {
+  flex: 1; 
+}
+
+/* Profile View Styles */
+.profile-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #fff;
+  border-right: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-view.dark {
+  background-color: #242424;
+  color: #fff;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.username {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.profile-options .option {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.profile-options .option svg {
+  margin-right: 10px;
+}
+
+.profile-options .option:hover {
+  background-color: #f0f0f0;
+}
+
+.profile-options .option.dark:hover {
+  background-color: #3b3b3b;
+}
+
+/* Responsive Media Query */
+@media (max-width: 768px) {
+  .chat-list {
+    display: block;
+  }
+  .chat-list.hidden {
+    display: none; /* Hide chat list if a chat is selected */
+  }
+  .chat-window.active {
+    display: flex;
+  }
+}
+
+@media (min-width: 768px) {
+  .app {
+    flex-direction: row;
+  }
+
+  .chat-list {
+    width: 30%;
+    flex: none;
+  }
+
+  .chat-window {
+    width: 70%;
+    flex: none;
+    display: flex;
+  }
+
+  .chat-window.active {
+    display: flex;
+  }
+
+  .chat-list.hidden {
+    display: block;
+  }
+}
